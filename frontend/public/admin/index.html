@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title data-i18n="admin.title">فوريرة | لوحة التحكم</title>
+  <!-- Theme & Lang Early Initializers to prevent flashing -->
+  <script src="/assets/js/theme-init.js"></script>
+  <script src="/assets/js/lang-init.js"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/js/tailwind.config.js"></script>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Tajawal', sans-serif; }
+    html[lang="en"] body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-cardBg dark:bg-darkBg min-h-screen text-darkText dark:text-darkTextMain transition-colors">
+  <header class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-darkBorder transition-colors sticky top-0 z-40">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="h-10 md:h-12 flex items-center">
+        <img src="/assets/img/forreira-logo.svg" alt="فوريرة" data-i18n-aria-label="brand.logoAlt" class="h-10 md:h-12 w-auto object-contain dark:hidden">
+        <img src="/assets/img/forreira-logo-light.svg" alt="فوريرة" data-i18n-aria-label="brand.logoAlt" class="h-10 md:h-12 w-auto object-contain hidden dark:block">
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle -->
+        <button type="button" data-action="toggle-theme" aria-label="تبديل المظهر" aria-pressed="false" class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-darkBorder bg-gray-50 dark:bg-darkBg text-gray-700 dark:text-darkTextMain hover:border-primary dark:hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition cursor-pointer">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <!-- Language Toggle -->
+        <button type="button" data-action="toggle-lang" aria-label="تبديل اللغة إلى الإنجليزية" class="px-3.5 h-10 text-xs font-bold flex items-center justify-center rounded-xl border border-gray-200 dark:border-darkBorder bg-gray-50 dark:bg-darkBg text-gray-700 dark:text-darkTextMain hover:border-primary dark:hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition cursor-pointer">
+          EN
+        </button>
+        <!-- Logout Button -->
+        <button id="logout" data-i18n="admin.logout" class="text-sm font-bold text-gray-600 dark:text-darkMuted hover:text-primary dark:hover:text-primary cursor-pointer transition ms-2">
+          تسجيل الخروج
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-8 text-darkText dark:text-darkTextMain">
+    <div class="flex items-center justify-between mb-4 gap-4 flex-wrap">
+      <h1 data-i18n="admin.shipments" class="text-2xl font-black text-darkText dark:text-darkTextMain">الشحنات</h1>
+      <select id="statusFilter" class="border border-gray-300 dark:border-darkBorder rounded-xl px-3 py-2 bg-white dark:bg-darkCard text-darkText dark:text-darkTextMain focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"></select>
+    </div>
+    <div id="error" class="hidden mb-4 p-3 rounded-xl bg-red-50 text-red-700 border border-red-200 dark:bg-red-950/60 dark:text-red-300 dark:border-red-800 font-semibold"></div>
+    <div class="bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-darkBorder overflow-x-auto shadow-sm">
+      <table class="w-full text-start">
+        <thead class="bg-gray-50 dark:bg-darkBg text-sm text-gray-500 dark:text-darkMuted border-b border-gray-200 dark:border-darkBorder">
+          <tr>
+            <th data-i18n="admin.thTracking" class="p-3 text-start">رقم الشحنة</th>
+            <th data-i18n="admin.thSender" class="p-3 text-start">المرسل</th>
+            <th data-i18n="admin.thReceiver" class="p-3 text-start">المستلم</th>
+            <th data-i18n="admin.thPackage" class="p-3 text-start">الطرد</th>
+            <th data-i18n="admin.thStatus" class="p-3 text-start">الحالة</th>
+            <th data-i18n="admin.thDate" class="p-3 text-start">التاريخ</th>
+            <th data-i18n="admin.thUpdate" class="p-3 text-start">تحديث</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="flex items-center justify-between mt-4 text-sm">
+      <button id="prev" data-i18n="admin.prev" class="px-4 py-2 rounded-lg bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder text-darkText dark:text-darkTextMain disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-darkBg transition cursor-pointer">السابق</button>
+      <span id="pageInfo" class="text-gray-500 dark:text-darkMuted font-medium"></span>
+      <button id="next" data-i18n="admin.next" class="px-4 py-2 rounded-lg bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder text-darkText dark:text-darkTextMain disabled:opacity-40 hover:bg-gray-50 dark:hover:bg-darkBg transition cursor-pointer">التالي</button>
+    </div>
+  </main>
+  <script type="module" src="/assets/js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منصة الشحن والتوصيل المحلي الأولى المتخصصة في تلبية احتياجات المتاجر والتجارة الإلكترونية بكل دقة وسرعة." data-i18n-content="meta.description">
+    <title data-i18n="brand.tagline">فوريرة | سرعة وضمان - الشحن والتوصيل المحلي</title>
+    <!-- Early theme & language initializers (synchronous to prevent flashing) -->
+    <script src="/assets/js/theme-init.js"></script>
+    <script src="/assets/js/lang-init.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/js/tailwind.config.js"></script>
+    <!-- Google Fonts (Tajawal & Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; }
+        html[lang="en"] body { font-family: 'Inter', sans-serif; }
+        /* Global: all form input text in orange */
+        input:not([type="hidden"]):not([type="submit"]):not([type="button"]),
+        textarea,
+        select { color: #FF5722 !important; }
+
+        /* Custom Scrollbar — orange on hover */
+        /* Webkit (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a0a0a0;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: background 0.3s;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF5722;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #a0a0a0 transparent;
+        }
+        *:hover {
+            scrollbar-color: #FF5722 transparent;
+        }
+    </style>
+</head>
+<body class="bg-lightBg dark:bg-darkBg text-darkText dark:text-darkTextMain antialiased transition-colors">
+
+    <!-- Top Bar -->
+    <div class="bg-darkText dark:bg-[#050C1D] text-gray-300 dark:text-darkMuted text-xs py-2.5 px-4 border-b border-gray-800 dark:border-darkBorder transition-colors">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <span><i class="fa-solid fa-headset text-primary me-1.5" aria-hidden="true"></i> <span data-i18n="topbar.support">الدعم الفوري: 19988</span></span>
+                <span><i class="fa-solid fa-envelope text-primary me-1.5" aria-hidden="true"></i> support@forreira.com</span>
+            </div>
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <span data-i18n="topbar.branches" class="hover:text-primary cursor-pointer transition">الفروع والتوكيلات</span>
+                <button type="button" data-action="toggle-lang" class="hover:text-primary cursor-pointer transition bg-transparent border-none p-0 text-gray-300 dark:text-darkMuted font-bold text-xs" aria-label="تبديل اللغة إلى الإنجليزية">English</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="bg-white dark:bg-darkCard shadow-sm sticky top-0 z-50 border-b border-gray-100 dark:border-darkBorder transition-colors">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- شعار فوريرة الأصلي (المضبوط للوضع الفاتح والداكن) -->
+            <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <div class="h-11 w-auto flex items-center">
+                        <img src="/assets/img/forreira-logo.svg" alt="شعار فوريرة" data-i18n-aria-label="brand.logoAlt" class="h-11 w-auto object-contain dark:hidden">
+                        <img src="/assets/img/forreira-logo-light.svg" alt="شعار فوريرة" data-i18n-aria-label="brand.logoAlt" class="h-11 w-auto object-contain hidden dark:block">
+                    </div>
+                </a>
+                <div>
+                    <h1 class="text-2xl font-black text-darkText dark:text-darkTextMain tracking-wider">
+                        <span class="text-primary" data-i18n="brand.name">فوريرة</span>
+                        <span class="text-gray-600 dark:text-white text-xs font-bold block" data-i18n="brand.slogan">سرعة وضمان</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 rtl:space-x-reverse font-bold text-gray-700 dark:text-darkTextMain">
+                <a href="#" data-i18n="nav.home" class="text-primary transition">الرئيسية</a>
+                <button data-action="toggle-quick-send" data-i18n="nav.quickSend" class="hover:text-primary transition bg-transparent border-none cursor-pointer font-bold text-gray-700 dark:text-darkTextMain">شحن سريع فوري</button>
+                <a href="#services" data-i18n="nav.services" class="hover:text-primary transition">خدمات التوصيل المحلي</a>
+                <a href="#tracking-section" data-i18n="nav.tracking" class="hover:text-primary transition">تتبع شحنتك</a>
+                <a href="#feedback-section" data-i18n="nav.feedback" class="hover:text-primary transition">الشكاوى والمقترحات</a>
+            </nav>
+
+            <!-- Actions and Controls -->
+            <div class="flex items-center space-x-2.5 rtl:space-x-reverse">
+                <!-- Theme Toggle Button -->
+                <button type="button" data-action="toggle-theme" aria-label="تبديل المظهر" aria-pressed="false" class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-darkBorder bg-gray-50 dark:bg-darkBg text-gray-700 dark:text-darkTextMain hover:border-primary dark:hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition cursor-pointer">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+
+                <!-- Language Toggle Button -->
+                <button type="button" data-action="toggle-lang" aria-label="تبديل اللغة إلى الإنجليزية" class="px-3.5 h-10 text-xs font-bold flex items-center justify-center rounded-xl border border-gray-200 dark:border-darkBorder bg-gray-50 dark:bg-darkBg text-gray-700 dark:text-darkTextMain hover:border-primary dark:hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition cursor-pointer">
+                    EN
+                </button>
+
+                <!-- Admin Login Button -->
+                <a href="/admin/login.html" data-i18n="nav.login" class="hidden sm:inline-flex bg-gray-100 hover:bg-gray-200 dark:bg-[#1A2C56] dark:hover:bg-darkBorder text-darkText dark:text-darkTextMain font-bold px-4 py-2 rounded-lg text-sm transition items-center">
+                    تسجيل الدخول
+                </a>
+
+                <!-- Terms CTA Button -->
+                <button type="button" data-action="open-terms-modal" data-i18n="nav.terms" class="hidden sm:inline-flex bg-primary hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-lg text-sm shadow-md transition items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-file-shield text-xs" aria-hidden="true"></i>
+                    <span>سياسة الاستخدام</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button type="button" data-action="toggle-mobile-menu" aria-label="القائمة" aria-expanded="false" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-darkBorder bg-gray-50 dark:bg-darkBg text-gray-700 dark:text-darkTextMain hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+                    <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer / Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 dark:border-darkBorder bg-white dark:bg-darkCard px-4 py-4 space-y-3 shadow-lg transition-colors">
+            <nav class="flex flex-col space-y-2 font-bold text-gray-700 dark:text-darkTextMain">
+                <a href="#" data-i18n="nav.home" class="text-primary py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-darkBg transition">الرئيسية</a>
+                <button data-action="toggle-quick-send" data-i18n="nav.quickSend" class="text-start py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-darkBg transition bg-transparent border-none cursor-pointer font-bold text-gray-700 dark:text-darkTextMain">شحن سريع فوري</button>
+                <a href="#services" data-i18n="nav.services" class="py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-darkBg transition">خدمات التوصيل المحلي</a>
+                <a href="#tracking-section" data-i18n="nav.tracking" class="py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-darkBg transition">تتبع شحنتك</a>
+                <a href="#feedback-section" data-i18n="nav.feedback" class="py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-darkBg transition">الشكاوى والمقترحات</a>
+            </nav>
+            <div class="pt-3 border-t border-gray-100 dark:border-darkBorder flex flex-col gap-2">
+                <a href="/admin/login.html" data-i18n="nav.login" class="w-full text-center bg-gray-100 dark:bg-[#1A2C56] text-darkText dark:text-darkTextMain font-bold py-2 rounded-lg text-sm">تسجيل الدخول</a>
+                <button type="button" data-action="open-terms-modal" data-i18n="nav.terms" class="w-full text-center bg-primary hover:bg-orange-600 text-white font-bold py-2.5 rounded-lg text-sm shadow flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-file-shield text-xs" aria-hidden="true"></i>
+                    <span>سياسة الاستخدام</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-lightBg dark:bg-darkBg text-darkText dark:text-darkTextMain min-h-[calc(100vh-105px)] flex items-center justify-center py-10 lg:py-0 overflow-hidden border-b border-gray-100 dark:border-darkBorder transition-colors">
+        <div class="container mx-auto px-4 relative z-10 w-full">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center bg-primary/10 dark:bg-primary/20 text-primary px-3.5 py-1.5 rounded-full text-xs font-extrabold border border-primary/20 dark:border-primary/40">
+                        <i class="fa-solid fa-truck-fast me-1.5" aria-hidden="true"></i> <span data-i18n="hero.badge">الشريك اللوجستي الأول للمتاجر والأفراد</span>
+                    </div>
+                    
+                    <h2 class="text-3xl lg:text-4xl font-black leading-tight text-darkText dark:text-darkTextMain">
+                        <span class="text-primary" data-i18n="hero.titleLine1">كن شريك فوريرة...</span> <br>
+                        <span class="text-darkText dark:text-darkTextMain text-4xl lg:text-5xl" data-i18n="hero.titleLine2">مع فوريرة السرعة والضمان.</span>
+                    </h2>
+                    
+                    <p data-i18n="hero.subtitle" class="text-gray-600 dark:text-darkMuted text-base leading-relaxed font-medium">
+                        نقدم أسرع خدمات الشحن المحلي وتوصيل طلبات التجارة الإلكترونية لأبواب العملاء بأعلى معايير الأمان والدقة والمتابعة اللحظية.
+                    </p>
+
+                    <div class="flex items-center space-x-6 rtl:space-x-reverse pt-2 text-sm text-gray-600 dark:text-darkMuted font-medium flex-wrap gap-y-2">
+                        <div class="flex items-center"><i class="fa-solid fa-shield-halved text-primary me-2" aria-hidden="true"></i> <span data-i18n="hero.insurance">تأمين كامل على الشحنات</span></div>
+                        <div class="flex items-center"><i class="fa-solid fa-clock text-primary me-2" aria-hidden="true"></i> <span data-i18n="hero.fastDelivery">توصيل في وقت قياسي</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقات الثلاث جنباً إلى جنب في الواجهة الرئيسية -->
+                <div class="lg:col-span-7 flex flex-col gap-4">
+                    <div id="partners" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        
+                        <!-- بطاقة التجار -->
+                        <div class="bg-gradient-to-br from-primary to-orange-700 p-5 sm:p-5.5 rounded-3xl shadow-xl text-white text-center flex flex-col justify-between min-h-[285px] transition-transform hover:-translate-y-1 duration-200">
+                            <div>
+                                <div data-i18n="cards.merchants.badge" class="bg-white/20 text-white font-bold text-[11px] px-2.5 py-1 rounded-full inline-block mb-3">
+                                    للمتاجر
+                                </div>
+                                <div class="mb-2.5">
+                                    <i class="fa-solid fa-shop text-3xl sm:text-4xl text-orange-100" aria-hidden="true"></i>
+                                </div>
+                                <h3 data-i18n="cards.merchants.title" class="text-base font-black mb-1.5">كن شريك فوريرة</h3>
+                                <p data-i18n="cards.merchants.desc" class="text-orange-100 text-[11px] sm:text-xs mb-3 leading-relaxed font-medium">
+                                    اربط متجرك وتمتع بتوصيل فوري وتحصيل دقيق.
+                                </p>
+                            </div>
+                            <div>
+                                <button data-i18n="cards.merchants.cta" class="w-full bg-white text-primary hover:bg-orange-50 font-black py-2.5 rounded-xl text-xs shadow-md transition cursor-pointer">
+                                    سجل الآن
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة الشحن السريع الفوري (في الوسط) -->
+                        <div class="bg-white dark:bg-darkCard border-2 border-primary/30 dark:border-primary/40 p-5 sm:p-5.5 rounded-3xl shadow-xl text-darkText dark:text-darkTextMain text-center flex flex-col justify-between min-h-[285px] transition-all hover:-translate-y-1 duration-200">
+                            <div>
+                                <div data-i18n="cards.quickSend.badge" class="bg-primary/10 text-primary font-bold text-[11px] px-2.5 py-1 rounded-full inline-block mb-3">
+                                    شحن سريع
+                                </div>
+                                <div class="mb-2.5">
+                                    <i class="fa-solid fa-bolt text-3xl sm:text-4xl text-primary" aria-hidden="true"></i>
+                                </div>
+                                <h3 data-i18n="cards.quickSend.title" class="text-base font-black mb-1.5 text-darkText dark:text-darkTextMain">شحن سريع فوري</h3>
+                                <p data-i18n="cards.quickSend.desc" class="text-gray-600 dark:text-darkMuted text-[11px] sm:text-xs mb-3 leading-relaxed font-medium">
+                                    ابعت طردك فوراً بدون الحاجة لتسجيل حساب.
+                                </p>
+                            </div>
+                            <button data-action="toggle-quick-send" data-i18n="cards.quickSend.cta" class="w-full bg-primary hover:bg-orange-600 text-white font-black py-2.5 rounded-xl text-xs shadow-md transition cursor-pointer">
+                                ابعت طردك
+                            </button>
+                        </div>
+
+                        <!-- بطاقة المندوبين -->
+                        <div class="bg-gradient-to-br from-darkText to-gray-900 dark:from-[#0E1D3F] dark:to-[#050C1D] dark:border dark:border-darkBorder p-5 sm:p-5.5 rounded-3xl shadow-xl text-white text-center flex flex-col justify-between min-h-[285px] transition-transform hover:-translate-y-1 duration-200">
+                            <div>
+                                <div data-i18n="cards.couriers.badge" class="bg-primary text-white font-bold text-[11px] px-2.5 py-1 rounded-full inline-block mb-3">
+                                    للمندوبين
+                                </div>
+                                <div class="mb-2.5">
+                                    <i class="fa-solid fa-motorcycle text-3xl sm:text-4xl text-primary" aria-hidden="true"></i>
+                                </div>
+                                <h3 data-i18n="cards.couriers.title" class="text-base font-black mb-1.5">اكسب مع فوريرة</h3>
+                                <p data-i18n="cards.couriers.desc" class="text-gray-300 dark:text-darkMuted text-[11px] sm:text-xs mb-3 leading-relaxed font-medium">
+                                    انضم لفريقنا وضعف دخلك بكل سهولة وسرعة.
+                                </p>
+                            </div>
+                            <div>
+                                <button data-i18n="cards.couriers.cta" class="w-full bg-primary hover:bg-orange-600 text-white font-black py-2.5 rounded-xl text-xs shadow-md transition cursor-pointer">
+                                    انضم كمندوب
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- أزرار تحميل التطبيقات تحت البطاقات مباشرة -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-1">
+
+                        <!-- تحت بطاقة التاجر -->
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span data-i18n="apps.merchantLabel" class="text-[11px] font-black text-gray-500 dark:text-darkMuted tracking-wide">تطبيق التاجر</span>
+                            <div class="flex gap-3 justify-center items-center">
+                                <a href="#" dir="ltr" class="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity" title="Google Play">
+                                    <img src="/assets/img/google-play.svg" alt="Google Play" class="w-5 h-5">
+                                    <span class="text-xs font-bold text-gray-700 dark:text-gray-300">Google Play</span>
+                                </a>
+                                <a href="#" dir="ltr" class="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity" title="App Store">
+                                    <img src="/assets/img/app-store.svg" alt="App Store" class="w-5 h-5 dark:invert">
+                                    <span class="text-xs font-bold text-gray-700 dark:text-gray-300">App Store</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- تحت بطاقة الشحن السريع في الوسط -->
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span data-i18n="apps.quickSendLabel" class="text-[11px] font-black text-gray-500 dark:text-darkMuted tracking-wide">شحن بدون تسجيل</span>
+                            <div class="flex gap-3 justify-center items-center">
+                                <button type="button" data-action="toggle-quick-send" dir="ltr" class="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity cursor-pointer bg-transparent border-none p-0" title="شحن فوري بدون تسجيل">
+                                    <img src="/assets/img/forreira-logo.svg" alt="Forreira" class="w-5 h-5 object-contain dark:hidden">
+                                    <img src="/assets/img/forreira-logo-light.svg" alt="Forreira" class="w-5 h-5 object-contain hidden dark:block">
+                                    <span data-i18n="apps.quickSendBtn" class="text-xs font-bold text-gray-700 dark:text-gray-300">Forreira Web</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- تحت بطاقة المندوب -->
+                        <div class="flex flex-col items-center gap-1.5">
+                            <span data-i18n="apps.captainLabel" class="text-[11px] font-black text-gray-500 dark:text-darkMuted tracking-wide">تطبيق المندوب</span>
+                            <div class="flex gap-3 justify-center items-center">
+                                <a href="#" dir="ltr" class="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity" title="Google Play">
+                                    <img src="/assets/img/google-play.svg" alt="Google Play" class="w-5 h-5">
+                                    <span class="text-xs font-bold text-gray-700 dark:text-gray-300">Google Play</span>
+                                </a>
+                                <a href="#" dir="ltr" class="inline-flex items-center gap-1.5 hover:opacity-75 transition-opacity" title="App Store">
+                                    <img src="/assets/img/app-store.svg" alt="App Store" class="w-5 h-5 dark:invert">
+                                    <span class="text-xs font-bold text-gray-700 dark:text-gray-300">App Store</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم نموذج الشحن السريع الفوري (مخفي بالكامل تماماً ولا يظهر إلا بالضغط على الزر) -->
+    <section id="quick-send-section" class="py-16 bg-darkText dark:bg-[#050C1D] text-white hidden transition-colors">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <div data-i18n="quickSend.badge" class="inline-block bg-primary/20 text-primary font-bold text-xs px-4 py-1.5 rounded-full mb-3 backdrop-blur-sm border border-primary/30">
+                    خدمة الأفراد والعملاء المؤقتين
+                </div>
+                <h2 data-i18n="quickSend.title" class="text-3xl lg:text-4xl font-black mb-3">ابعت طردك في ثوانٍ.. بدون تسجيل حساب!</h2>
+                <p data-i18n="quickSend.desc" class="text-gray-300 dark:text-darkMuted text-sm lg:text-base font-medium max-w-2xl mx-auto">
+                    لو عندك أوردر أو هدية أو طرد عايز ترسله لأي مكان داخل المدينة فوراً، مش محتاج تسجل حساب ولا تنتظر موافقة؛ اكتب بيانات الاستلام والتسليم ومندوبنا هيستلمه من باب بيتك.
+                </p>
+            </div>
+
+            <!-- نموذج الشحن الفوري السريع -->
+            <div class="bg-primary/10 dark:bg-primary/15 text-white p-8 lg:p-10 rounded-3xl shadow-2xl border border-primary/30 dark:border-primary/40 transition-colors">
+                <form id="quickSendForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- بيانات المرسل -->
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-primary text-lg border-b border-primary/30 pb-2"><i class="fa-solid fa-user-check me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.senderTitle">بيانات المرسل</span></h3>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.senderName">اسم المرسل</span></label>
+                                <input name="senderName" type="text" required data-i18n-placeholder="quickSend.senderNamePlaceholder" placeholder="الاسم الكامل" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.senderPhone">رقم الهاتف</span></label>
+                                <input name="senderPhone" type="tel" required data-i18n-placeholder="quickSend.senderPhonePlaceholder" placeholder="010xxxxxxxx" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.senderAddress">عنوان الاستلام بالتفصيل</span></label>
+                                <input name="senderAddress" type="text" required data-i18n-placeholder="quickSend.senderAddressPlaceholder" placeholder="المدينة، الشارع، رقم المبنى" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><i class="fa-solid fa-map-pin text-primary me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.senderMapsUrl">حدد اللوكيشن هنا (رابط الخريطة)</span></label>
+                                <input name="senderMapsUrl" type="url" data-i18n-placeholder="quickSend.senderMapsUrlPlaceholder" placeholder="الصق رابط الموقع من Google Maps" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><i class="fa-solid fa-camera text-primary me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.shipmentPhoto">إرفاق صورة للشحنة قبل التغليف</span></label>
+                                <label class="w-full flex items-center justify-center gap-3 bg-darkBg/80 dark:bg-darkBg border-2 border-dashed border-primary/40 hover:border-primary placeholder-gray-500 px-4 py-4 rounded-xl cursor-pointer transition group">
+                                    <input name="shipmentPhoto" type="file" accept="image/*" class="hidden" id="shipmentPhotoInput">
+                                    <i class="fa-solid fa-cloud-arrow-up text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                    <span id="shipmentPhotoLabel" class="text-gray-400 dark:text-darkMuted text-sm font-medium" data-i18n="quickSend.shipmentPhotoPlaceholder">اضغط هنا لاختيار صورة أو اسحبها</span>
+                                </label>
+                                <div id="shipmentPhotoPreview" class="mt-2 hidden">
+                                    <div class="relative inline-block">
+                                        <img id="shipmentPhotoImg" src="" alt="معاينة الصورة" class="h-24 w-auto rounded-xl border border-primary/30 shadow-md object-cover">
+                                        <button type="button" id="shipmentPhotoRemove" class="absolute -top-2 -left-2 rtl:-left-auto rtl:-right-2 w-6 h-6 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xs shadow-md transition cursor-pointer">
+                                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بيانات المستلم وتفاصيل الطرد (مضاف إليها اللوكيشن وأقرب معلم) -->
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-primary text-lg border-b border-primary/30 pb-2"><i class="fa-solid fa-location-dot me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.receiverTitle">عنوان وبيانات المستلم</span></h3>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.receiverName">اسم المستلم</span></label>
+                                <input name="receiverName" type="text" required data-i18n-placeholder="quickSend.receiverNamePlaceholder" placeholder="الاسم الكامل" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.receiverPhone">رقم هاتف المستلم</span></label>
+                                <input name="receiverPhone" type="tel" required data-i18n-placeholder="quickSend.receiverPhonePlaceholder" placeholder="010xxxxxxxx" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><i class="fa-solid fa-map-pin text-primary me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.mapsUrl">حدد اللوكيشن هنا (رابط الخريطة)</span></label>
+                                <input name="mapsUrl" type="url" data-i18n-placeholder="quickSend.mapsUrlPlaceholder" placeholder="الصق رابط الموقع من Google Maps" class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><i class="fa-solid fa-landmark text-primary me-1.5" aria-hidden="true"></i> <span data-i18n="quickSend.receiverAddress">أقرب معلم (عنوان مميز)</span></label>
+                                <input name="receiverAddress" type="text" required data-i18n-placeholder="quickSend.receiverAddressPlaceholder" placeholder="مثال: بجوار مسجد النور، خلف صيدلية..." class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-1 text-white"><span data-i18n="quickSend.itemType">وصف الطرد والمحتويات</span></label>
+                                <input name="itemType" type="text" required data-i18n-placeholder="quickSend.itemTypePlaceholder" placeholder="مثال: ملابس، إلكترونيات، مستندات..." class="w-full bg-darkBg/80 dark:bg-darkBg border border-darkBorder placeholder-gray-500 dark:placeholder-darkMuted px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 text-center">
+                        <button type="submit" class="bg-primary hover:bg-orange-600 text-white font-black px-10 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition text-base cursor-pointer inline-flex items-center">
+                            <span data-i18n="quickSend.submit">تأكيد طلب الشحن السريع</span>
+                            <i class="fa-solid fa-arrow-left rtl:inline ltr:hidden ms-2" aria-hidden="true"></i>
+                            <i class="fa-solid fa-arrow-right ltr:inline rtl:hidden ms-2" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div id="quickSendResult" class="mt-4 hidden p-4 bg-green-50 text-green-800 dark:bg-green-950/60 dark:text-green-300 dark:border dark:border-green-800/80 rounded-xl text-center font-bold"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-cardBg dark:bg-darkBg transition-colors">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 data-i18n="services.title" class="text-3xl font-black text-darkText dark:text-darkTextMain mb-3">خدمات التوصيل المحلي</h2>
+                <p data-i18n="services.desc" class="text-gray-600 dark:text-darkMuted font-medium">نلبي احتياجات متجرك وعملائك بأفضل حلول التوصيل السريع والفعلي داخل الدولة</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-darkCard border border-gray-200/80 dark:border-darkBorder p-8 rounded-3xl shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa-solid fa-motorcycle" aria-hidden="true"></i>
+                    </div>
+                    <h3 data-i18n="services.s1Title" class="text-xl font-bold mb-3 text-darkText dark:text-darkTextMain">التوصيل السريع (Express)</h3>
+                    <p data-i18n="services.s1Desc" class="text-gray-600 dark:text-darkMuted text-sm leading-relaxed font-medium">
+                        توصيل فوري للطلبات خلال نفس اليوم لضمان أعلى رضا لعملاء متجرك الإلكتروني.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-darkCard border border-gray-200/80 dark:border-darkBorder p-8 rounded-3xl shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa-solid fa-shop" aria-hidden="true"></i>
+                    </div>
+                    <h3 data-i18n="services.s2Title" class="text-xl font-bold mb-3 text-darkText dark:text-darkTextMain">شحن طلبات المتاجر</h3>
+                    <p data-i18n="services.s2Desc" class="text-gray-600 dark:text-darkMuted text-sm leading-relaxed font-medium">
+                        استلام الطرود من مقر متجرك وتسليمها للعملاء بكل احترافية وأمان تام مع تحصيل المدفوعات (COD).
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-darkCard border border-gray-200/80 dark:border-darkBorder p-8 rounded-3xl shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                    </div>
+                    <h3 data-i18n="services.s3Title" class="text-xl font-bold mb-3 text-darkText dark:text-darkTextMain">تحصيل الأموال (COD)</h3>
+                    <p data-i18n="services.s3Desc" class="text-gray-600 dark:text-darkMuted text-sm leading-relaxed font-medium">
+                        تحصيل قيمة المبيعات من العملاء وإيداعها في حسابك البنكي أو محفظتك بسرعة وبدون تأخير.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تتبع الشحنة المباشر (في الأسفل ليبقى الهيرو نظيفاً بالكامل في الصفحة الأولى) -->
+    <section id="tracking-section" class="py-16 bg-white dark:bg-[#07122B] border-t border-gray-100 dark:border-darkBorder transition-colors">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="bg-cardBg dark:bg-darkCard p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-darkBorder shadow-xl transition-colors text-center">
+                <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3.5 py-1.5 rounded-full text-xs font-extrabold mb-3">
+                    <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+                    <span>تتبع مباشر لحظة بلحظة</span>
+                </div>
+                <h2 data-i18n="tracking.title" class="text-xl sm:text-2xl font-black text-darkText dark:text-darkTextMain mb-2">أدخل رقم الشحنة للتتبع المباشر</h2>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-darkMuted mb-6 font-medium">تابع خط سير طردك وموعد التسليم المتوقع فوراً</p>
+                <div class="flex gap-2">
+                    <input type="text" id="trackInput" data-i18n-placeholder="tracking.placeholder" placeholder="مثال: FOR12345678" maxlength="11" autocomplete="off" class="flex-grow bg-white dark:bg-darkBg text-darkText dark:text-darkTextMain placeholder-gray-400 dark:placeholder-darkMuted border border-gray-300 dark:border-darkBorder px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary font-bold">
+                    <button id="trackButton" class="bg-primary hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg flex items-center justify-center cursor-pointer">
+                        <span data-i18n="tracking.button">تتبع الشحنة</span>
+                        <i class="fa-solid fa-magnifying-glass ms-2" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div id="trackResult" class="mt-4 hidden p-4 bg-white dark:bg-darkBg text-darkText dark:text-darkTextMain border border-gray-200 dark:border-darkBorder rounded-xl shadow-inner font-semibold text-start"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الشكاوى والمقترحات (شاركنا رأيك، اقتراحك أو شكواك) -->
+    <section id="feedback-section" class="py-20 bg-lightBg dark:bg-darkBg transition-colors border-t border-gray-100 dark:border-darkBorder">
+        <div class="container mx-auto px-4 max-w-3xl">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-10">
+                <div data-i18n="feedback.badge" class="inline-flex items-center gap-2 bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-4 py-1.5 rounded-full text-xs font-extrabold mb-4 backdrop-blur-sm shadow-sm">
+                    <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+                    صوتك مسموع ويهمنا
+                </div>
+                <h2 data-i18n="feedback.title" class="text-3xl md:text-4xl font-black text-darkText dark:text-darkTextMain mb-3 tracking-tight">
+                    شاركنا رأيك، اقتراحك أو شكواك
+                </h2>
+                <p data-i18n="feedback.subtitle" class="text-gray-600 dark:text-darkMuted text-sm md:text-base max-w-xl mx-auto font-medium leading-relaxed">
+                    إدارة فوريرة تتابع كل رسالة باهتمام بالغ لتطوير المنظومة وحل أي ملاحظة فوراً.
+                </p>
+            </div>
+
+            <!-- Feedback Card Form (Orange Card with Dark Inputs & White Labels) -->
+            <div class="bg-primary text-white p-6 md:p-10 rounded-3xl shadow-2xl border border-orange-400/40 transition-colors">
+                <form id="feedbackForm" class="space-y-6">
+                    <!-- Hidden inputs to track active choices -->
+                    <input type="hidden" id="feedbackUserRole" name="userRole" value="merchant">
+                    <input type="hidden" id="feedbackType" name="feedbackType" value="suggestion">
+
+                    <!-- 1. أنت تمثل: -->
+                    <div>
+                        <label class="block text-sm font-black text-white mb-2.5 flex items-center gap-2">
+                            <i class="fa-solid fa-users text-white text-xs" aria-hidden="true"></i>
+                            <span data-i18n="feedback.roleLabel">أنت تمثل:</span>
+                        </label>
+                        <div class="grid grid-cols-3 gap-2.5">
+                            <!-- تاجر -->
+                            <button type="button" data-role-btn="merchant" aria-pressed="true" class="py-2.5 px-3 rounded-xl text-xs md:text-sm font-black border-2 border-white bg-white text-primary shadow-md flex items-center justify-center gap-2 transition cursor-pointer">
+                                <i class="fa-solid fa-shop text-sm" aria-hidden="true"></i>
+                                <span data-i18n="feedback.roleMerchant">تاجر</span>
+                            </button>
+                            <!-- كابتن -->
+                            <button type="button" data-role-btn="captain" aria-pressed="false" class="py-2.5 px-3 rounded-xl text-xs md:text-sm font-bold border border-white/20 bg-[#07122B] text-gray-200 hover:border-white/60 flex items-center justify-center gap-2 transition cursor-pointer">
+                                <i class="fa-solid fa-motorcycle text-sm" aria-hidden="true"></i>
+                                <span data-i18n="feedback.roleCaptain">كابتن</span>
+                            </button>
+                            <!-- عميل / زائر -->
+                            <button type="button" data-role-btn="customer" aria-pressed="false" class="py-2.5 px-3 rounded-xl text-xs md:text-sm font-bold border border-white/20 bg-[#07122B] text-gray-200 hover:border-white/60 flex items-center justify-center gap-2 transition cursor-pointer">
+                                <i class="fa-solid fa-user text-sm" aria-hidden="true"></i>
+                                <span data-i18n="feedback.roleCustomer">عميل / زائر</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. نوع المشاركة: -->
+                    <div>
+                        <label class="block text-sm font-black text-white mb-2.5 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-white text-xs" aria-hidden="true"></i>
+                            <span data-i18n="feedback.typeLabel">نوع المشاركة:</span>
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <!-- شكوى أو ملاحظة -->
+                            <button type="button" data-type-btn="complaint" aria-pressed="false" class="py-2.5 px-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 bg-[#07122B] text-gray-200 hover:border-white/60 text-center transition cursor-pointer">
+                                <span data-i18n="feedback.typeComplaint">شكوى أو ملاحظة</span>
+                            </button>
+                            <!-- اقتراح تطوير -->
+                            <button type="button" data-type-btn="suggestion" aria-pressed="true" class="py-2.5 px-2 rounded-xl text-xs md:text-sm font-black border-2 border-white bg-white text-primary shadow-md text-center transition cursor-pointer">
+                                <span data-i18n="feedback.typeSuggestion">اقتراح تطوير</span>
+                            </button>
+                            <!-- طلب شراكة -->
+                            <button type="button" data-type-btn="partnership" aria-pressed="false" class="py-2.5 px-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 bg-[#07122B] text-gray-200 hover:border-white/60 text-center transition cursor-pointer">
+                                <span data-i18n="feedback.typePartnership">طلب شراكة</span>
+                            </button>
+                            <!-- استفسار عام -->
+                            <button type="button" data-type-btn="inquiry" aria-pressed="false" class="py-2.5 px-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 bg-[#07122B] text-gray-200 hover:border-white/60 text-center transition cursor-pointer">
+                                <span data-i18n="feedback.typeInquiry">استفسار عام</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. الاسم ورقم الهاتف -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-white mb-1.5"><span data-i18n="feedback.nameLabel">الاسم الكامل</span></label>
+                            <input name="name" type="text" required data-i18n-placeholder="feedback.namePlaceholder" placeholder="اكتب اسمك" class="w-full bg-[#07122B] border border-white/20 placeholder-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-sm font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-white mb-1.5"><span data-i18n="feedback.phoneLabel">رقم الهاتف أو الواتساب</span></label>
+                            <input name="phone" type="tel" required data-i18n-placeholder="feedback.phonePlaceholder" placeholder="01xxxxxxxxx" class="w-full bg-[#07122B] border border-white/20 placeholder-gray-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-sm font-medium">
+                        </div>
+                    </div>
+
+                    <!-- 4. نص الرسالة أو الشكوى -->
+                    <div>
+                        <label class="block text-sm font-bold text-white mb-1.5"><span data-i18n="feedback.messageLabel">نص الرسالة أو الشكوى</span></label>
+                        <textarea name="message" rows="4" required data-i18n-placeholder="feedback.messagePlaceholder" placeholder="اكتب تفاصيل مشاركتك أو اقتراحك أو ملاحظتك هنا..." class="w-full bg-[#07122B] border border-white/20 placeholder-gray-400 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-white text-sm font-medium resize-y"></textarea>
+                    </div>
+
+                    <!-- Submit Button (زر إرسال الرسالة الأخضر المميز) -->
+                    <div>
+                        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-black py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition text-base flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            <span data-i18n="feedback.submit">إرسال الرسالة</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Result Box -->
+                <div id="feedbackResult" class="mt-4 hidden p-4 bg-emerald-950/80 text-emerald-200 border border-emerald-600/80 rounded-xl text-center font-bold"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-darkText dark:bg-[#050C1D] text-white py-12 border-t border-gray-800 dark:border-darkBorder transition-colors">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <h3 class="text-2xl font-black mb-4"><span class="text-primary" data-i18n="brand.name">فوريرة</span> <span class="text-primary text-xs font-bold block" data-i18n="brand.slogan">سرعة وضمان</span></h3>
+                <p data-i18n="footer.about" class="text-gray-400 dark:text-darkMuted text-sm leading-relaxed font-medium">
+                    منصة الشحن والتوصيل المحلي الأولى المتخصصة في تلبية احتياجات المتاجر والتجارة الإلكترونية بكل دقة وسرعة.
+                </p>
+            </div>
+            <div>
+                <h4 data-i18n="footer.quickLinks" class="font-bold text-lg mb-4 text-primary">روابط سريعة</h4>
+                <ul class="space-y-2 text-sm text-gray-300 dark:text-darkMuted font-medium">
+                    <li><a href="#" data-i18n="nav.home" class="hover:text-primary transition">الرئيسية</a></li>
+                    <li><button data-action="toggle-quick-send" data-i18n="nav.quickSend" class="hover:text-primary transition bg-transparent border-none text-gray-300 dark:text-darkMuted cursor-pointer p-0 font-medium">شحن سريع فوري</button></li>
+                    <li><a href="#services" data-i18n="footer.services" class="hover:text-primary transition">خدماتنا</a></li>
+                    <li><a href="#tracking-section" data-i18n="footer.tracking" class="hover:text-primary transition">تتبع الشحنة</a></li>
+                    <li><a href="#feedback-section" data-i18n="nav.feedback" class="hover:text-primary transition">الشكاوى والمقترحات</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-i18n="footer.help" class="font-bold text-lg mb-4 text-primary">الدعم والمساعدة</h4>
+                <ul class="space-y-2 text-sm text-gray-300 dark:text-darkMuted font-medium">
+                    <li><a href="#" data-i18n="footer.faq" class="hover:text-primary transition">الأسئلة الشائعة</a></li>
+                    <li><a href="#" data-action="open-terms-modal" data-i18n="footer.terms" class="hover:text-primary transition">سياسة الاستخدام</a></li>
+                    <li><a href="#feedback-section" data-i18n="nav.feedback" class="hover:text-primary transition">الشكاوى والمقترحات</a></li>
+                    <li><a href="#" data-i18n="footer.contact" class="hover:text-primary transition">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-i18n="footer.contactUs" class="font-bold text-lg mb-4 text-primary">تواصل معنا</h4>
+                <p class="text-sm text-gray-300 dark:text-darkMuted mb-2 font-medium"><i class="fa-solid fa-phone text-primary me-2" aria-hidden="true"></i> <span data-i18n="footer.hotline">الخط الساخن: 19988</span></p>
+                <p class="text-sm text-gray-300 dark:text-darkMuted mb-4 font-medium"><i class="fa-solid fa-envelope text-primary me-2" aria-hidden="true"></i> support@forreira.com</p>
+                <div class="flex space-x-3 rtl:space-x-reverse">
+                    <a href="#" class="w-10 h-10 bg-white/10 dark:bg-[#1A2C56] rounded-full flex items-center justify-center hover:bg-primary transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/10 dark:bg-[#1A2C56] rounded-full flex items-center justify-center hover:bg-primary transition" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/10 dark:bg-[#1A2C56] rounded-full flex items-center justify-center hover:bg-primary transition" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div data-i18n="footer.rights" class="border-t border-gray-800 dark:border-darkBorder text-center pt-6 text-xs text-gray-400 dark:text-darkMuted font-medium">
+            جميع الحقوق محفوظة لشركة فوريرة (Forreira) للخدمات اللوجستية والتوصيل المحلي 2026.
+        </div>
+    </footer>
+
+    <!-- نافذة الشروط والأحكام التنظيمية وسياسة الاستخدام (Terms Modal) -->
+    <div id="termsModal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-[100] hidden items-center justify-center p-3 sm:p-6 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
+        <div class="bg-white dark:bg-[#07122B] text-darkText dark:text-darkTextMain rounded-3xl shadow-2xl border border-gray-200 dark:border-darkBorder max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden animate-fadeIn">
+            
+            <!-- Modal Header -->
+            <div class="p-5 sm:p-6 border-b border-gray-100 dark:border-darkBorder bg-gray-50/70 dark:bg-[#0B1528] flex items-center justify-between gap-4 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 id="termsModalTitle" class="text-lg sm:text-xl font-black text-darkText dark:text-white">
+                                الشروط والأحكام التنظيمية للمنظومة
+                            </h3>
+                            <span class="inline-block bg-primary/15 text-primary text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-primary/20">
+                                فوريرة Forreira
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-darkMuted mt-0.5 font-medium flex items-center gap-1.5">
+                            <i class="fa-regular fa-calendar-check text-primary"></i>
+                            <span>آخر تحديث: 13 أكتوبر 2026</span>
+                        </p>
+                    </div>
+                </div>
+                <button type="button" data-action="close-terms-modal" aria-label="إغلاق" class="w-10 h-10 rounded-xl bg-gray-200/70 hover:bg-gray-300 dark:bg-darkCard dark:hover:bg-darkBorder text-gray-600 dark:text-gray-300 flex items-center justify-center transition cursor-pointer shrink-0">
+                    <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-5 sm:p-8 overflow-y-auto space-y-6 text-sm leading-relaxed">
+
+                <!-- تنبيه التسليم الميداني البارز -->
+                <div class="p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 text-amber-900 dark:text-amber-200 flex items-start gap-3">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-500 text-xl mt-0.5 shrink-0" aria-hidden="true"></i>
+                    <div>
+                        <h4 class="font-black text-sm mb-1 text-amber-700 dark:text-amber-300">ضوابط وسياسة التسليم الميداني (هام جداً):</h4>
+                        <p class="text-xs sm:text-sm font-medium leading-relaxed">
+                            حرصاً على سلامة المندوب والعميل وسرعة إنجاز المهام اللوجستية، يتم تسليم واستلام كافة الطرود حصراً في الشارع عند مدخل العقار، ويمنع تماماً صعود المندوب إلى الشقق السكنية أو دخول الوحدات الخاصة.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1. القبول والأهلية -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card-clip text-sm" aria-hidden="true"></i>
+                        1. القبول والأهلية
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>تنظم هذه الشروط استخدام تطبيق التاجر وتطبيق المندوب وموقع فوريرة. باستخدامك للمنصة فأنت توافق عليها وعلى سياسة الخصوصية.</li>
+                        <li>يجب أن يكون عمرك 18 عاماً على الأقل لإنشاء حساب.</li>
+                        <li>تلتزم بتقديم بيانات صحيحة وتحديثها، وأنت مسؤول عن كل ما يتم من حسابك، ولا يجوز مشاركة الحساب مع غيرك.</li>
+                        <li>يُفعّل حساب المندوب بعد مراجعة مستندات الهوية والقيادة والمركبة.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. الاستخدام المقبول -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-sm" aria-hidden="true"></i>
+                        2. الاستخدام المقبول
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>استخدم المنصة لأغراض مشروعة فقط، وأدخل بيانات الشحنة وقيمتها ووزنها بدقة.</li>
+                        <li>تعامل باحترام مع التجار والمناديب والمستلمين وفريق الدعم، ولا تستخدم بيانات أي منهم خارج نطاق الشحنة.</li>
+                        <li>لا تحاول التحايل على المنصة أو التلاعب بالأسعار أو المحفظة أو رموز التسليم، ولا تحاول الوصول لحسابات غيرك أو تعطيل الخدمة.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. المحتوى والشحنات المحظورة -->
+                <div class="p-5 rounded-2xl bg-red-500/5 dark:bg-red-950/20 border border-red-500/20">
+                    <h4 class="font-black text-base text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-ban text-sm" aria-hidden="true"></i>
+                        3. المحتوى والشحنات المحظورة
+                    </h4>
+                    <p class="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        يُحظر إرسال أو نقل ما يلي عبر فوريرة، سواء في المحادثات أو الصور أو الملف الشخصي أو داخل الطرود:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>أي محتوى يتضمن استغلالاً أو اعتداءً جنسياً على الأطفال (CSAE)، بما في ذلك مواد الاعتداء الجنسي على الأطفال (CSAM). نتعامل مع ذلك بحزم وإبلاغ فوري كما هو موضح في معايير سلامة الأطفال.</li>
+                        <li>المحتوى الجنسي الصريح، أو المحتوى الذي يحرض على العنف أو الكراهية، أو التهديد أو التحرش بأي شخص.</li>
+                        <li>الأشياء التي يحظر القانون المصري نقلها أو حيازتها، ومنها الأسلحة والذخيرة والمواد المخدرة والمواد الخطرة أو القابلة للاشتعال.</li>
+                        <li>المسروقات أو المقلدات أو أي شحنة تخالف القانون أو حقوق الغير.</li>
+                        <li class="font-bold text-red-600 dark:text-red-400">يحق للمندوب رفض أي طرد يشتبه في مخالفته، ويحق لفوريرة حذف المحتوى وإيقاف الحساب وإبلاغ الجهات المختصة فوراً.</li>
+                    </ul>
+                </div>
+
+                <!-- 4. العمولات والرسوم -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-receipt text-sm" aria-hidden="true"></i>
+                        4. العمولات والرسوم
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>تُحسب رسوم التوصيل والعمولات حسب جدول التسعير المعمول به وقت إنشاء الشحنة، وتظهر قبل التأكيد.</li>
+                        <li>تُخصم عمولة التاجر عند إنشاء الشحنة وتُسترد عند إلغائها، مع مراعاة غرامة الإلغاء المتأخر.</li>
+                        <li>يُخصم من شحن المحفظة رسم الشحن المعلن وقت العملية.</li>
+                    </ul>
+                </div>
+
+                <!-- 5. المدفوعات والدفع عند الاستلام -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-money-bill-transfer text-sm" aria-hidden="true"></i>
+                        5. المدفوعات والدفع عند الاستلام
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li><strong>الدفع عند الاستلام:</strong> يحصّل المندوب قيمة الشحنة من المستلم نقداً. عند تسليم الشحنة تُضاف القيمة إلى أرباح التاجر في محفظته، وتُخصم من المندوب من مبلغ التأمين المحجوز إن وجد أو كمستحقات عليه.</li>
+                        <li><strong>الشحنات المدفوعة مسبقاً:</strong> يُخصم رسم التوصيل من محفظة التاجر عند التسليم، ويحصل المندوب على الرسم بعد خصم عمولته.</li>
+                        <li>يتم شحن المحفظة عبر بوابة Paymob، وكل الحركات المالية تظهر في سجل المحفظة.</li>
+                    </ul>
+                </div>
+
+                <!-- 6. المحفظة والسحب -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-wallet text-sm" aria-hidden="true"></i>
+                        6. المحفظة والسحب
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>الرصيد المشحون يُستخدم داخل المنصة فقط ولا يُسحب.</li>
+                        <li>الأرباح وحدها قابلة للسحب، بعد تسوية أي مستحقات على الحساب.</li>
+                        <li>قد تحجز المنصة مبلغ تأمين من المندوب لبعض الشحنات ويُرد عند إتمامها.</li>
+                    </ul>
+                </div>
+
+                <!-- 7. الإلغاء -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-xmark text-sm" aria-hidden="true"></i>
+                        7. ضوابط الإلغاء
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>يمكن للتاجر الإلغاء دون غرامة قبل قبول مندوب للشحنة وخلال دقيقتين من القبول.</li>
+                        <li>بعد ذلك يتحمل التاجر غرامة الإلغاء المقررة وتُحوَّل للمندوب.</li>
+                        <li>إذا ألغى المندوب الشحنة أثناء التوصيل يتحمل هو الغرامة.</li>
+                    </ul>
+                </div>
+
+                <!-- 8. التسليم -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-box-open text-sm" aria-hidden="true"></i>
+                        8. آلية التسليم
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>تُسلَّم الشحنة بعد إدخال رمز التسليم المكون من 6 أرقام الذي يصل للمستلم برسالة SMS.</li>
+                        <li>يتم التسليم والاستلام عند مدخل العقار ولا يصعد المندوب إلى الشقق أو الوحدات الخاصة.</li>
+                    </ul>
+                </div>
+
+                <!-- 9. النزاعات -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-sm" aria-hidden="true"></i>
+                        9. فض النزاعات
+                    </h4>
+                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                        يمكن لأي طرف فتح نزاع على الشحنة. تراجع الإدارة الأدلة وتصدر قراراً قد يتضمن تعويضاً أو خصماً من أحد الطرفين، ويُنفذ القرار على المحفظة مباشرة.
+                    </p>
+                </div>
+
+                <!-- 10. إيقاف الحساب -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user-slash text-sm" aria-hidden="true"></i>
+                        10. إيقاف الحساب
+                    </h4>
+                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                        يحق لفوريرة إيقاف أو إغلاق أي حساب يخالف هذه الشروط أو القانون، بعد تسوية ما له وما عليه في المحفظة وفقاً لهذه الشروط.
+                    </p>
+                </div>
+
+                <!-- 11. المسؤولية -->
+                <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                    <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-sm" aria-hidden="true"></i>
+                        11. المسؤولية القانونية
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium">
+                        <li>فوريرة منصة تربط التجار بالمناديب. التاجر مسؤول عن محتوى الطرد ومشروعيته ودقة بياناته، والمندوب مسؤول عن الطرد منذ استلامه حتى تسليمه.</li>
+                        <li>في الحدود التي يسمح بها القانون، لا تتجاوز مسؤولية فوريرة عن أي شحنة الرسوم والعمولات التي حصلتها عنها، ولا تتحمل فوريرة الخسائر غير المباشرة أو فوات الربح.</li>
+                        <li>لا تحد هذه الشروط من أي حقوق لا يجوز الاتفاق على مخالفتها وفقاً للقانون المصري، ومنها حقوق المستهلك.</li>
+                    </ul>
+                </div>
+
+                <!-- 12. تعديل الشروط والقانون الواجب التطبيق -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                        <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-sm" aria-hidden="true"></i>
+                            12. تعديل الشروط
+                        </h4>
+                        <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                            قد نعدّل هذه الشروط، وعندها نغيّر تاريخ آخر تحديث أعلى الصفحة. استمرارك في استخدام فوريرة بعد التعديل يعني موافقتك على الشروط المعدلة.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#0B1528] border border-gray-200/80 dark:border-[#1A2C56]">
+                        <h4 class="font-black text-base text-primary mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-gavel text-sm" aria-hidden="true"></i>
+                            13. القانون الواجب التطبيق
+                        </h4>
+                        <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                            تخضع هذه الشروط لقوانين جمهورية مصر العربية، وتختص المحاكم المصرية المختصة بنظر أي نزاع ينشأ عنها.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 14. التواصل -->
+                <div class="p-5 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-between flex-wrap gap-4">
+                    <div>
+                        <h4 class="font-black text-base text-primary mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-headset text-sm" aria-hidden="true"></i>
+                            14. قنوات التواصل والاستفسارات
+                        </h4>
+                        <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium">
+                            لأي استفسار عن هذه الشروط راسلنا على: <a href="mailto:support@forreira.com" class="text-primary font-bold underline">support@forreira.com</a>
+                        </p>
+                    </div>
+                    <a href="mailto:support@forreira.com" class="bg-primary hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md">
+                        مراسلة الدعم القانوني
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 sm:p-5 border-t border-gray-100 dark:border-darkBorder bg-gray-50/70 dark:bg-[#0B1528] flex items-center justify-between shrink-0">
+                <span class="text-xs text-gray-500 dark:text-darkMuted font-medium">
+                    منصة فوريرة اللوجستية © 2026
+                </span>
+                <button type="button" data-action="close-terms-modal" class="bg-primary hover:bg-orange-600 text-white font-black px-6 py-2.5 rounded-xl text-sm transition shadow-md cursor-pointer">
+                    فهمت وموافق
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/assets/js/main.js"></script>
+    <script>
+        // Shipment photo upload preview & remove
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoInput = document.getElementById('shipmentPhotoInput');
+            const photoLabel = document.getElementById('shipmentPhotoLabel');
+            const photoPreview = document.getElementById('shipmentPhotoPreview');
+            const photoImg = document.getElementById('shipmentPhotoImg');
+            const photoRemove = document.getElementById('shipmentPhotoRemove');
+            if (!photoInput) return;
+
+            photoInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoImg.src = e.target.result;
+                        photoPreview.classList.remove('hidden');
+                        photoLabel.textContent = file.name;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            photoRemove.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                photoInput.value = '';
+                photoImg.src = '';
+                photoPreview.classList.add('hidden');
+                // Restore translated placeholder text
+                var lang = document.documentElement.lang || 'ar';
+                photoLabel.textContent = lang === 'en' ? 'Click here to select a photo or drag it' : 'اضغط هنا لاختيار صورة أو اسحبها';
+            });
+        });
+    </script>
+</body>
+</html>
