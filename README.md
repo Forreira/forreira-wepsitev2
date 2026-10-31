@@ -49,3 +49,4 @@ npm run seed                # in a second terminal: admin user + demo shipment
 ## Linking to the existing apps later
 
 `backend/src/shipments` is a self-contained Nest module (TypeORM entities, services, controllers). To connect it to `forreira-backend`, point it at the real shipment entity or turn quick requests into leads.
+# forreira-wepsitev2
