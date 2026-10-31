@@ -12,8 +12,8 @@ export default {
 
   // Navigation
   'nav.home': 'الرئيسية',
-  'nav.quickSend': 'شحن سريع فوري',
-  'nav.services': 'خدمات التوصيل المحلي',
+  'nav.quickSend': 'شحن سريع',
+  'nav.services': 'خدمات التوصيل',
   'nav.tracking': 'تتبع شحنتك',
   'nav.feedback': 'الشكاوى والمقترحات',
   'nav.login': 'تسجيل الدخول',
@@ -46,7 +46,7 @@ export default {
   'cards.couriers.cta': 'انضم كمندوب',
 
   'cards.quickSend.badge': 'شحن سريع',
-  'cards.quickSend.title': 'شحن سريع فوري',
+  'cards.quickSend.title': 'شحن سريع',
   'cards.quickSend.desc': 'ابعت طردك فوراً بدون الحاجة لتسجيل حساب.',
   'cards.quickSend.cta': 'ابعت طردك',
 
@@ -103,7 +103,7 @@ export default {
   'quickSend.success': 'تم تسجيل طلب الشحن بنجاح برقم <strong>{trackingCode}</strong>. احتفظ بالرقم لتتبع شحنتك، وسنتواصل معك هاتفياً قريباً.',
 
   // Services Section
-  'services.title': 'خدمات التوصيل المحلي',
+  'services.title': 'خدمات التوصيل',
   'services.desc': 'نلبي احتياجات متجرك وعملائك بأفضل حلول التوصيل السريع والفعلي داخل الدولة',
   'services.s1Title': 'التوصيل السريع (Express)',
   'services.s1Desc': 'توصيل فوري للطلبات خلال نفس اليوم لضمان أعلى رضا لعملاء متجرك الإلكتروني.',

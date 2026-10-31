@@ -14,9 +14,9 @@ export function initFeedback() {
   const roleBtns = form.querySelectorAll('[data-role-btn]');
   const typeBtns = form.querySelectorAll('[data-type-btn]');
 
-  const activeClasses = ['border-2', 'border-white', 'bg-white', 'text-primary', 'shadow-md', 'font-black'];
-  const inactiveClasses = ['border', 'border-white/20', 'bg-[#07122B]', 'text-gray-200', 'font-bold'];
-  const legacyClasses = ['border-primary', 'bg-primary/20', 'dark:bg-primary/25', 'dark:text-white', 'text-white', 'shadow-sm', 'border-slate-700/60', 'dark:border-darkBorder', 'bg-slate-800/60', 'text-slate-300', 'dark:text-darkMuted', 'border-gray-200', 'bg-gray-50', 'text-gray-700'];
+  const activeClasses = ['border', 'border-primary', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-orange-500/25', 'font-black'];
+  const inactiveClasses = ['border', 'border-gray-200', 'dark:border-white/10', 'bg-gray-100', 'dark:bg-white/5', 'text-gray-700', 'dark:text-gray-300', 'hover:border-primary/40', 'font-bold'];
+  const legacyClasses = ['border-2', 'border-white', 'bg-white', 'text-primary', 'shadow-md', 'bg-[#07122B]', 'text-gray-200', 'border-white/20', 'bg-primary/20', 'dark:bg-primary/25', 'dark:text-white', 'border-slate-700/60', 'dark:border-darkBorder', 'bg-slate-800/60', 'text-slate-300', 'dark:text-darkMuted', 'border-gray-200', 'bg-gray-50'];
 
   // Role button selection
   roleBtns.forEach((btn) => {

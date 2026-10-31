@@ -46,7 +46,7 @@ export default {
   'cards.couriers.cta': 'Join as Captain',
 
   'cards.quickSend.badge': 'Quick Send',
-  'cards.quickSend.title': 'Instant Quick Send',
+  'cards.quickSend.title': 'Quick Send',
   'cards.quickSend.desc': 'Send your package right away without registering an account.',
   'cards.quickSend.cta': 'Send Package',
 
@@ -103,7 +103,7 @@ export default {
   'quickSend.success': 'Shipment request registered successfully with tracking number <strong>{trackingCode}</strong>. Keep this number to track your shipment, we will call you shortly.',
 
   // Services Section
-  'services.title': 'Local Delivery Services',
+  'services.title': 'Delivery Services',
   'services.desc': 'Meeting your business and customer logistics needs with top-tier fast delivery solutions nationwide',
   'services.s1Title': 'Express Delivery',
   'services.s1Desc': 'Same-day instant order delivery ensuring highest customer satisfaction for your online store.',
